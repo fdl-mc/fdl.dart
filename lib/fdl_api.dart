@@ -8,7 +8,9 @@ part 'src/models/payment_response.dart';
 
 part 'src/core/typedefs.dart';
 part 'src/core/rest_client.dart';
+part 'src/core/rest_endpoints.dart';
 
 part 'src/interfaces/builder.dart';
+part 'src/interfaces/get_parameters_builder.dart';
 
 part 'src/builders/payment_builder.dart';

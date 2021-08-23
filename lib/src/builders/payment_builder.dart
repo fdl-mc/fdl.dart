@@ -1,6 +1,6 @@
 part of fdl_api;
 
-class PaymentBuilder extends Builder<RawApiMap> {
+class PaymentBuilder extends GetParametersBuilder {
   String? payer;
   String? payee;
   int? amount;
@@ -8,11 +8,11 @@ class PaymentBuilder extends Builder<RawApiMap> {
   PaymentBuilder({this.payer, this.payee, this.amount});
 
   @override
-  RawApiMap build() {
+  Map<String, String> build() {
     return {
       'payer': payer!,
       'payee': payee!,
-      'amount': amount!,
+      'amount': amount!.toString(),
     };
   }
 }

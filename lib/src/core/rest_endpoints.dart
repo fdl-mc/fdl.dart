@@ -15,7 +15,7 @@ class _RestEndpoints {
   /// Processes payment.
   Future<PaymentResponse> pay(PaymentBuilder paymentQuery) async {
     final res = await _clinet.get(
-      '/stats/main',
+      '/economy/pay',
       parameters: paymentQuery.build(),
     );
     return PaymentResponse._new(res.body, hasError: res.statusCode != 200);

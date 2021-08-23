@@ -9,7 +9,7 @@ class ServerStats {
   late final int port;
 
   /// Server description.
-  late final String desciption;
+  late final String description;
 
   /// Server version (ex. 1.17.1)
   late final String version;
@@ -23,7 +23,7 @@ class ServerStats {
   ServerStats._new(RawApiMap raw) {
     ip = raw['ip'] as String;
     port = raw['port'] as int;
-    desciption = raw['desciption'] as String;
+    description = raw['description'] as String;
     version = raw['version'] as String;
     latency = raw['latency'] as int;
     players = Players._new(raw['players']);

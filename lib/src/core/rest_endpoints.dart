@@ -1,9 +1,8 @@
 part of fdl_api;
 
 class _RestEndpoints {
-  _RestEndpoints(this._base_url) : _clinet = _RestClient(_base_url);
+  _RestEndpoints(String baseUrl) : _clinet = _RestClient(baseUrl);
 
-  final String _base_url;
   final _RestClient _clinet;
 
   Future<ServerStats> getMainServerStats() async {

@@ -3,6 +3,8 @@ library fdl_api;
 import 'package:http/http.dart' show Client;
 import 'dart:convert' show jsonDecode;
 
+part 'src/fdl_api.dart';
+
 part 'src/models/server_stats.dart';
 part 'src/models/payment_response.dart';
 

@@ -3,17 +3,16 @@ part of fdl_api;
 class _RestClient {
   final Client _client;
   final String _baseUrl;
-  String get baseUrl => _baseUrl;
 
   _RestClient(this._baseUrl) : _client = Client();
 
   Future<_RestClientResponse> get(
     String endpoint, {
-    GetParametersMap parameters = const {},
-    Map<String, String> headers = const {},
+    GetParametersMap? parameters,
+    Map<String, String>? headers,
   }) async {
     final response = await _client.get(
-      Uri.https(baseUrl, endpoint, parameters),
+      Uri.https(_baseUrl, endpoint, parameters),
       headers: headers,
     );
     // print(response.body);
@@ -26,10 +25,10 @@ class _RestClient {
   Future<_RestClientResponse> post(
     String endpoint, {
     dynamic body,
-    Map<String, String> headers = const {},
+    Map<String, String>? headers,
   }) async {
     final response = await _client.post(
-      Uri.https(baseUrl, endpoint),
+      Uri.https(_baseUrl, endpoint),
       body: body,
       headers: headers,
     );

@@ -4,7 +4,7 @@ Future<void> main() async {
   final fdl = FdlApi('fdl-api.domain');
 
   final stats = await fdl.getMainServerStats();
-  print(stats.desciption);
+  print(stats.description);
 
   final payment = await fdl.pay(
     PaymentBuilder()

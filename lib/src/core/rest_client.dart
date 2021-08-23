@@ -9,7 +9,7 @@ class _RestClient {
 
   Future<_RestClientResponse> get(
     String endpoint, {
-    Map<String, String> parameters = const {},
+    GetParametersMap parameters = const {},
     Map<String, String> headers = const {},
   }) async {
     final response = await _client.get(

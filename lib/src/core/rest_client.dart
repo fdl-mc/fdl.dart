@@ -13,7 +13,7 @@ class _RestClient {
     Map<String, String>? headers,
   }) async {
     final response = await _client.get(
-      Uri.https(_baseUrl, endpoint, parameters),
+      Uri.http(_baseUrl, endpoint, parameters),
       headers: headers,
     );
     // print(response.body);
@@ -30,7 +30,7 @@ class _RestClient {
     Map<String, String>? headers,
   }) async {
     final response = await _client.post(
-      Uri.https(_baseUrl, endpoint),
+      Uri.http(_baseUrl, endpoint),
       body: body,
       headers: headers,
     );

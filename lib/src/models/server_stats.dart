@@ -1,11 +1,23 @@
 part of fdl_api;
 
+/// Server stats, eg. ip, latency, players info, etc.
 class ServerStats {
+  /// Server IP.
   late final String ip;
+
+  /// Server port.
   late final int port;
+
+  /// Server description.
   late final String desciption;
+
+  /// Server version (ex. 1.17.1)
   late final String version;
+
+  /// Server latency (in ms).
   late final int latency;
+
+  /// Server players information.
   late final Players players;
 
   ServerStats._new(RawApiMap raw) {
@@ -18,9 +30,15 @@ class ServerStats {
   }
 }
 
+/// Server players stats.
 class Players {
+  /// Count of players currently on the server.
   late final int online;
+
+  /// Maximum possible number of players.
   late final int max;
+
+  /// List of names of players who are on the server.
   late final List<String> names;
 
   Players._new(RawApiMap raw) {

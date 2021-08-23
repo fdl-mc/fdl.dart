@@ -6,6 +6,7 @@ class _RestClient {
 
   _RestClient(this._baseUrl) : _client = Client();
 
+  /// Processes GET request
   Future<_RestClientResponse> get(
     String endpoint, {
     GetParametersMap? parameters,
@@ -22,6 +23,7 @@ class _RestClient {
     );
   }
 
+  /// Processes POST request
   Future<_RestClientResponse> post(
     String endpoint, {
     dynamic body,

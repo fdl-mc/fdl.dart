@@ -7,7 +7,7 @@ class _RestClient {
 
   _RestClient(this._baseUrl) : _client = Client();
 
-  Future<dynamic> get(
+  Future<_RestClientResponse> get(
     String endpoint, {
     Map<String, String> parameters = const {},
     Map<String, String> headers = const {},
@@ -17,10 +17,13 @@ class _RestClient {
       headers: headers,
     );
     // print(response.body);
-    return jsonDecode(response.body);
+    return _RestClientResponse(
+      jsonDecode(response.body),
+      statusCode: response.statusCode,
+    );
   }
 
-  Future<dynamic> post(
+  Future<_RestClientResponse> post(
     String endpoint, {
     dynamic body,
     Map<String, String> headers = const {},
@@ -30,6 +33,16 @@ class _RestClient {
       body: body,
       headers: headers,
     );
-    return jsonDecode(response.body);
+    return _RestClientResponse(
+      jsonDecode(response.body),
+      statusCode: response.statusCode,
+    );
   }
+}
+
+class _RestClientResponse {
+  final dynamic body;
+  final int statusCode;
+
+  _RestClientResponse(this.body, {required this.statusCode});
 }

@@ -1,7 +1,7 @@
 library fdl_api;
 
 import 'package:http/http.dart' show Client;
-import 'dart:convert' show jsonDecode;
+import 'dart:convert' show jsonDecode, utf8;
 
 part 'src/fdl_api.dart';
 

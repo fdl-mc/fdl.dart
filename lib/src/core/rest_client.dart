@@ -18,7 +18,7 @@ class _RestClient {
     );
     // print(response.body);
     return _RestClientResponse(
-      jsonDecode(response.body),
+      jsonDecode(utf8.decode(response.bodyBytes)),
       statusCode: response.statusCode,
     );
   }
@@ -35,7 +35,7 @@ class _RestClient {
       headers: headers,
     );
     return _RestClientResponse(
-      jsonDecode(response.body),
+      jsonDecode(utf8.decode(response.bodyBytes)),
       statusCode: response.statusCode,
     );
   }

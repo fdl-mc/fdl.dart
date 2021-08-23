@@ -1,5 +1,5 @@
 name: fdl_api
-description: The wrapper over FreedomLand API.
+description: The wrapper over FreedomLand API. Provides an abstraction layer for easy interacting with REST and WS methods.
 repository: https://github.com/fdl-mc/fdl-api-dart
 version: 1.0.0
 

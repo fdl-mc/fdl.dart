@@ -8,16 +8,22 @@ class _RestEndpoints {
 
   /// Gets main server stats.
   Future<ServerStats> getMainServerStats() async {
-    final res = await _clinet.get('/stats/main');
+    final res = await _clinet.get('/v1/stats/main');
+    return ServerStats._new(res.body);
+  }
+
+  /// Gets main server stats.
+  Future<ServerStats> getCreativeServerStats() async {
+    final res = await _clinet.get('/v1/stats/creative');
     return ServerStats._new(res.body);
   }
 
   /// Processes payment.
   Future<PaymentResponse> pay(PaymentBuilder paymentQuery) async {
-    final res = await _clinet.get(
-      '/economy/pay',
-      parameters: paymentQuery.build(),
+    final res = await _clinet.post(
+      '/v1/economy/pay',
+      body: paymentQuery.build(),
     );
-    return PaymentResponse._new(res.body, hasError: res.statusCode != 200);
+    return PaymentResponse._new(res.body);
   }
 }

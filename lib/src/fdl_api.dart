@@ -4,7 +4,8 @@ part of fdl_api;
 /// Represends basic functionality that always available.
 abstract class IFdlApi {
   Future<ServerStats> getMainServerStats();
-  Future<PaymentResponse> pay(PaymentBuilder paymentBuilder);
+  Future<PaymentResponse> pay(String token,
+      {required PaymentBuilder paymentBuilder});
 }
 
 /// Main class for interacting with FDL API.
@@ -20,7 +21,10 @@ class FdlApi implements IFdlApi {
 
   /// Processes payment.
   @override
-  Future<PaymentResponse> pay(PaymentBuilder paymentBuilder) async {
+  Future<PaymentResponse> pay(
+    String token, {
+    required PaymentBuilder paymentBuilder,
+  }) async {
     return await _endpoints.pay(paymentBuilder);
   }
 }

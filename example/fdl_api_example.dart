@@ -7,10 +7,11 @@ Future<void> main() async {
   print(stats.description);
 
   final payment = await fdl.pay(
-    PaymentBuilder()
-      ..payer = 'arslee'
+    'tokentokentokenblahblahblahblahblah',
+    paymentBuilder: PaymentBuilder()
       ..payee = 'Calamity_34'
-      ..amount = 5,
+      ..amount = 5
+      ..payee = 'сходи купи бебры пж',
   );
   print(payment.message);
 }

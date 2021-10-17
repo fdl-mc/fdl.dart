@@ -7,7 +7,7 @@ Future<void> main() async {
   print(stats.description);
 
   final payment = await fdl.pay(
-    PaymentBuilder()
+    TransactionBuilder()
       ..payer = 'arslee'
       ..payee = 'Calamity_34'
       ..amount = 5,

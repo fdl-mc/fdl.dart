@@ -1,15 +1,26 @@
 part of fdl_api;
 
 /// Server response to transaction.
-class PaymentResponse {
-  /// True if the transaction is successful.
-  late final bool hasError;
+class Transaction {
+  /// Payer ID.
+  final String payer;
 
-  /// Message from the sever.
-  late final String message;
+  /// Payee ID.
+  final String payee;
 
-  PaymentResponse._new(RawApiMap raw, {required bool hasError}) {
-    this.hasError = hasError;
-    message = raw['message'] as String;
-  }
+  /// Amount of payed money.
+  final int amount;
+
+  /// Transaction comment.
+  final String? comment;
+
+  /// Transaction timestamp.
+  final DateTime at;
+
+  Transaction._new(RawApiMap raw)
+      : payer = raw['payer'] as String,
+        payee = raw['payee'] as String,
+        amount = raw['amount'] as int,
+        comment = raw['comment'] as String?,
+        at = DateTime.parse(raw['at'] as String);
 }

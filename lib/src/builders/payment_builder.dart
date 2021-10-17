@@ -1,25 +1,20 @@
 part of fdl_api;
 
 // Payment information builder.
-class PaymentBuilder extends GetParametersBuilder {
-  /// Payer (from).
-  String? payer;
-
-  /// Payee (to).
-  String? payee;
+class TransactionBuilder extends Builder<RawApiMap> {
+  /// Transaction comment message.
+  String? comment;
 
   /// Amount of money.
-  int? amount;
+  int amount;
 
-  PaymentBuilder({this.payer, this.payee, this.amount});
+  TransactionBuilder({this.comment, required this.amount});
 
-  /// Returns GET parameters map.
   @override
-  Map<String, String> build() {
+  RawApiMap build() {
     return {
-      'payer': payer!,
-      'payee': payee!,
-      'amount': amount!.toString(),
+      if (comment != null) 'comment': comment!,
+      'amount': amount,
     };
   }
 }

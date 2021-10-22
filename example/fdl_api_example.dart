@@ -1,16 +1,7 @@
 import 'package:fdl_api/fdl_api.dart';
 
 Future<void> main() async {
-  final fdl = FdlApi('fdl-api.domain');
-
-  final stats = await fdl.getMainServerStats();
-  print(stats.description);
-
-  final payment = await fdl.pay(
-    TransactionBuilder()
-      ..payer = 'arslee'
-      ..payee = 'Calamity_34'
-      ..amount = 5,
-  );
-  print(payment.message);
+  final fdl = FdlApi('api.fdl-mc.ru');
+  final players = await fdl.findPassports('a');
+  players.forEach((p) => print(p.nickname));
 }

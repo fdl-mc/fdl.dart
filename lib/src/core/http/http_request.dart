@@ -19,7 +19,7 @@ class BasicRequest extends HttpRequest {
     this.body,
     this.queryParameters,
     this.headers,
-  }) : _url = Uri.https(_handler.baseUrl, endpoint, queryParameters);
+  }) : _url = Uri.http(_handler.baseUrl, endpoint, queryParameters);
 
   @override
   http.Request toRequest() {

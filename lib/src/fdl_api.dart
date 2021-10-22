@@ -14,8 +14,8 @@ abstract class IFdlApi {
 
 /// Main class for interacting with FDL API.
 class FdlApi implements IFdlApi {
-  final _RestEndpoints _endpoints;
-  FdlApi(String baseUrl) : _endpoints = _RestEndpoints(baseUrl);
+  final _HttpEndpoints _endpoints;
+  FdlApi(String baseUrl) : _endpoints = _HttpEndpoints(baseUrl);
 
   /// Get the main server statistics.
   @override

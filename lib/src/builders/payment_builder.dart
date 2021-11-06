@@ -8,12 +8,16 @@ class TransactionBuilder extends Builder<RawApiMap> {
   /// Amount of money.
   int amount;
 
-  TransactionBuilder({this.comment, required this.amount});
+  /// Payment reciever.
+  String payee;
+
+  TransactionBuilder({this.comment, required this.amount, required this.payee});
 
   @override
   RawApiMap build() {
     return {
       if (comment != null) 'comment': comment!,
+      'payee': payee,
       'amount': amount,
     };
   }

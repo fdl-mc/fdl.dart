@@ -5,11 +5,9 @@ part of fdl_api;
 abstract class IFdlApi {
   Future<ServerStats> getMainServerStats();
   Future<ServerStats> getCreativeServerStats();
-  Future<Passport> getPassport(String id);
-  Future<EconomyStats> getUserEconomyStats(String id);
-  Future<Iterable<Passport>> findPassports(String query);
-  Future<Transaction> pay(
-      String token, String id, TransactionBuilder paymentBuilder);
+  Future<User> getUser(String id);
+  Future<Iterable<User>> findUsers({String? nickname, String? discordId});
+  Future<Transaction> pay(String token, TransactionBuilder paymentBuilder);
 }
 
 /// Main class for interacting with FDL API.
@@ -27,22 +25,17 @@ class FdlApi implements IFdlApi {
       _endpoints.getCreativeServerStats();
 
   @override
-  Future<Passport> getPassport(String id) => _endpoints.getPassport(id);
+  Future<User> getUser(String id) => _endpoints.getUser(id);
 
   @override
-  Future<EconomyStats> getUserEconomyStats(String id) =>
-      _endpoints.getUserEconomyStats(id);
-
-  @override
-  Future<Iterable<Passport>> findPassports(String query) =>
-      _endpoints.findPassports(query);
+  Future<Iterable<User>> findUsers({String? nickname, String? discordId}) =>
+      _endpoints.findUsers(nickname: nickname, discordId: discordId);
 
   /// Process payment.
   @override
   Future<Transaction> pay(
     String token,
-    String id,
     TransactionBuilder paymentBuilder,
   ) =>
-      _endpoints.pay(token, id, paymentBuilder);
+      _endpoints.pay(token, paymentBuilder);
 }

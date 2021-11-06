@@ -17,8 +17,13 @@ class _HttpHandler {
             : jsonDecode(utf8.decode(response.bodyBytes)),
         statusCode: response.statusCode,
       );
+    } else {
+      return HttpResponseError._new(
+        response.body.isEmpty
+            ? null
+            : jsonDecode(utf8.decode(response.bodyBytes)),
+        statusCode: response.statusCode,
+      );
     }
-
-    throw FdlApiError._resolve(jsonDecode(utf8.decode(response.bodyBytes)));
   }
 }

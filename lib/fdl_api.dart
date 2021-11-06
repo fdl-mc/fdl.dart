@@ -9,8 +9,7 @@ part 'src/fdl_api.dart';
 part 'src/models/server_stats.dart';
 part 'src/models/payment_response.dart';
 part 'src/models/fdl_api_error.dart';
-part 'src/models/passport.dart';
-part 'src/models/economy_stats.dart';
+part 'src/models/user.dart';
 
 /// CORE
 part 'src/core/typedefs.dart';

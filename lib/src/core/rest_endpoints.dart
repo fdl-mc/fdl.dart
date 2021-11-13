@@ -52,6 +52,7 @@ class _HttpEndpoints {
       _handler,
       '/economy/pay',
       method: 'POST',
+      headers: {'Authorization': token},
       body: paymentQuery.build(),
     ).execute();
 

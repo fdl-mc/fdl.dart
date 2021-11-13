@@ -57,6 +57,7 @@ class _HttpEndpoints {
     ).execute();
 
     if (res.statusCode == 401) throw UnauthorizedError._new(401);
+    if (res.statusCode == 400) throw CannotPayToYourselfError._new(400);
     if (res.statusCode == 403) throw InsuffuicientFundsError._new(403);
     return Transaction._new(res.body);
   }

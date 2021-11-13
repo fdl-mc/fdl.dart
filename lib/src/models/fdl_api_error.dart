@@ -17,6 +17,10 @@ class UserNotFoundError extends FdlApiError {
   UserNotFoundError._new(int statusCode) : super._new(statusCode);
 }
 
+class CannotPayToYourselfError extends FdlApiError {
+  CannotPayToYourselfError._new(int statusCode) : super._new(statusCode);
+}
+
 class InsuffuicientFundsError extends FdlApiError {
   InsuffuicientFundsError._new(int statusCode) : super._new(statusCode);
 }

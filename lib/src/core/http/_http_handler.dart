@@ -3,8 +3,9 @@ part of fdl_api;
 class _HttpHandler {
   final _HttpClient _http;
   final String baseUrl;
+  final bool isHttps;
 
-  _HttpHandler(_client, this.baseUrl) : _http = _HttpClient();
+  _HttpHandler(_client, this.baseUrl, this.isHttps) : _http = _HttpClient();
 
   Future<HttpResponse> execute(HttpRequest httpRequest) async =>
       _handle(await _http.execute(httpRequest));

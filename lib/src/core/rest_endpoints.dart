@@ -2,8 +2,8 @@ part of fdl_api;
 
 /// Provides all REST endpoints of the FDL API.
 class _HttpEndpoints {
-  _HttpEndpoints(String baseUrl)
-      : _handler = _HttpHandler(_HttpClient(), baseUrl);
+  _HttpEndpoints(String baseUrl, bool isHttps)
+      : _handler = _HttpHandler(_HttpClient(), baseUrl, isHttps);
 
   final _HttpHandler _handler;
 
